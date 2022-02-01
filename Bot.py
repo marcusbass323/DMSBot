@@ -13,7 +13,7 @@ inputs[1].send_keys('V3rd3r0s@DMS')
 time.sleep(1)
 driver.find_element_by_xpath('//*[@id="login"]/fieldset[4]/input').click()
 time.sleep(1)
-page = 75
+page = 76
 count = 1
 def download():
     global page
