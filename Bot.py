@@ -1,11 +1,14 @@
 import BotConfig
 import time
 
+#configure chromedriver
 driver = BotConfig.driver
 driver.get('https://www.directmusicservice.com/login')
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="index"]/div/ul/li[1]/a').click()
 time.sleep(2)
+
+#log in
 driver.get('https://www.directmusicservice.com/login')
 inputs = driver.find_elements_by_tag_name("input")
 inputs[0].send_keys('iamdjmas')
@@ -13,6 +16,8 @@ inputs[1].send_keys('V3rd3r0s@DMS')
 time.sleep(1)
 driver.find_element_by_xpath('//*[@id="login"]/fieldset[4]/input').click()
 time.sleep(1)
+
+#set page to start downloads
 page = 76
 count = 1
 def download():
@@ -23,6 +28,7 @@ def download():
     time.sleep(1)
     buttons = driver.find_elements_by_tag_name("a[class='download']")
     for button in buttons:
+        #by executing script, we can avoid DMS counting our downloads - FREE DOWNLOADS @ lowest tier!
          driver.execute_script("arguments[0].click();", button)
          time.sleep(4)
     if page == 95:
